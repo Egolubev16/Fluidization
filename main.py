@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 
 def Raschet(diameter, diameter_list, density_CO2, density_of_particle, dyn_viscosity_CO2, cross_sectional_area, massflow_start_list, massflow_end_list):
@@ -19,7 +21,9 @@ def Raschet(diameter, diameter_list, density_CO2, density_of_particle, dyn_visco
         massflow_end = velocity_end * cross_sectional_area * density_CO2 * 1000 * 3600
         massflow_end_list.append(massflow_end)
 
-def Visual(diameter_list, massflow_start_list, massflow_end_list):
+    return diameter_list, massflow_start_list, massflow_end_list
+
+def visual(diameter_list, massflow_start_list, massflow_end_list):
     '''plt.title('Зависимость массового расхода начала псевдоожижения и уноса от диаметра частиц')
     plt.xlabel('Диаметр частиц, мкм')
     plt.ylabel('Массовый расход диоксида углерода, г/ч')
@@ -31,7 +35,7 @@ def Visual(diameter_list, massflow_start_list, massflow_end_list):
     plt.figure()
     plt.subplot(1, 2, 1)
     plt.title('Зависимость массового расхода начала псевдоожижения от диаметра частиц')
-    plt.xlabel('Диаметр частиц, м')
+    plt.xlabel('Диаметр частиц, мкм')
     plt.ylabel('Массовый расход диоксида углерода, г/ч')
     plt.plot(diameter_list, massflow_start_list, label="Начало псевдоожижения")
     plt.legend()
@@ -60,6 +64,10 @@ def main():
     diameter_list = []
     diameter = 100
 
-    Raschet(diameter, diameter_list, density_CO2, density_of_particle, dyn_viscosity_CO2, cross_sectional_area, massflow_start_list, massflow_end_list)
-    Visual(diameter_list, massflow_start_list, massflow_end_list)
+    diameter_list, massflow_start_list, massflow_end_list = Raschet(diameter, diameter_list, density_CO2, density_of_particle, dyn_viscosity_CO2, cross_sectional_area, massflow_start_list, massflow_end_list)
+
+
+    visual(diameter_list, massflow_start_list, massflow_end_list)
+
+
 main()
