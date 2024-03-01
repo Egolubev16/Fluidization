@@ -138,7 +138,12 @@ def nessesary_app_number(app_diameter, possible_cycles):
 
 
 def capex(cost, app_number, consumtion, electric_cost):
-    capex = app_number * cost / 10 / PRODUCTIVITY + consumtion * COST_CO2_PER_KG / PRODUCTIVITY + electric_cost / PRODUCTIVITY
+    capex_apparatus = app_number * cost / 10 / PRODUCTIVITY
+    capex_co2 = consumtion * COST_CO2_PER_KG / PRODUCTIVITY
+    capex_electrisity = electric_cost / PRODUCTIVITY
+    print('capex app check', capex_apparatus, 'capex co2 check', capex_co2, 'capex electr check', capex_electrisity)
+
+    capex = capex_apparatus + capex_co2 + capex_electrisity
     return capex
 
 def app_res_time(vol, mass_flow_rate):
