@@ -48,7 +48,7 @@ COST_CO2_PER_KG = 70  # RUB
 
 ELECRTIC_COST_PER_KW_H = 6.741  # RUB
 
-CO2_RECUPERATION_EFFICIENCY = 0.9
+CO2_RECUPERATION_EFFICIENCY = 0.7
 
 
 def app_massflow_rate(volume, res_time):
@@ -170,52 +170,54 @@ def electric_power_cost(mass_flow_rate, drying_time, cycles):
     electric_cost_per_year = power * drying_time * cycles * ELECRTIC_COST_PER_KW_H
     return electric_cost_per_year
 
+def main():
+    total_capex_cost = []
 
-total_capex_cost = []
+    for vol in app_volume:
+        mass_flow_rate = app_massflow_rate(vol, residence_time)
+        res_time = app_res_time(vol, mass_flow_rate)
 
-for vol in app_volume:
-    mass_flow_rate = app_massflow_rate(vol, residence_time)
-    res_time = app_res_time(vol, mass_flow_rate)
+        drying_time = app_drying_time(mass_flow_rate, vol)
+        diameter_list = app_diameter_ness(vol)
+        width_list = app_wall_width(diameter_list)
+        free_list = app_free_volume(vol)
+        cost = steel_cost(diameter_list, width_list)
 
-    drying_time = app_drying_time(mass_flow_rate, vol)
-    diameter_list = app_diameter_ness(vol)
-    width_list = app_wall_width(diameter_list)
-    free_list = app_free_volume(vol)
-    cost = steel_cost(diameter_list, width_list)
+        number_of_cycles_per_app = cycles_number(drying_time)
 
-    number_of_cycles_per_app = cycles_number(drying_time)
+        cost_co2 = co2_consumption(mass_flow_rate, drying_time, number_of_cycles_per_app)
 
-    cost_co2 = co2_consumption(mass_flow_rate, drying_time, number_of_cycles_per_app)
+        electric_cost_per_year = electric_power_cost(mass_flow_rate, drying_time, cycles_number(drying_time))
 
-    electric_cost_per_year = electric_power_cost(mass_flow_rate, drying_time, cycles_number(drying_time))
+        ness_app_number = np.round(nessesary_app_number(diameter_list, number_of_cycles_per_app), 0)
 
-    capex_cost = capex(cost, nessesary_app_number(diameter_list, number_of_cycles_per_app), cost_co2,
-                       electric_cost_per_year)
-    total_capex_cost.append(capex_cost)
+        capex_cost = capex(cost, ness_app_number, cost_co2,
+                           electric_cost_per_year)
+        total_capex_cost.append(capex_cost)
 
-    print('Apparatus Volume = ', vol, '\n', 'Massflow rate = ', mass_flow_rate, '\n', 'Drying time = ', drying_time,
-          '\n', 'CAPEX = ', capex_cost, '\n', 'Elecrtic cost', electric_cost_per_year)
+        print('Apparatus Volume = ', vol, '\n', 'Nessessary Apparatus Number = ', ness_app_number, '\n', 'Massflow rate = ', mass_flow_rate, '\n', 'Drying time = ', drying_time,
+              '\n', 'CAPEX = ', capex_cost, '\n', 'Elecrtic cost', electric_cost_per_year)
 
-total_capex_cost = np.array(total_capex_cost).T
+    total_capex_cost = np.array(total_capex_cost).T
 
-x, y = np.meshgrid(app_volume, residence_time)
+    x, y = np.meshgrid(app_volume, residence_time)
 
-print("-------------------------------")
-print(x)
-print("-------------------------------")
-print(y)
-print("-------------------------------")
-print(total_capex_cost)
-print("-------------------------------")
+    print("-------------------------------")
+    print(x)
+    print("-------------------------------")
+    print(y)
+    print("-------------------------------")
+    print(total_capex_cost)
+    print("-------------------------------")
 
-fig = plt.figure()
-ax = fig.add_subplot(projection='3d')
-ax.plot_surface(x, y, total_capex_cost)
-ax.set_xlabel('App_volume, m3')
-ax.set_ylabel('Residence time, s')
-ax.set_zlabel('Capex, rub')
+    fig = plt.figure()
+    ax = fig.add_subplot(projection='3d')
+    ax.plot_surface(x, y, total_capex_cost)
+    ax.set_xlabel('App_volume, m3')
+    ax.set_ylabel('Residence time, s')
+    ax.set_zlabel('Capex, rub')
 
-plt.show()
+    plt.show()
 
 # x, y = np.meshgrid(app_volume, residence_time)
 # #print('1', x, y)
