@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1283</width>
+    <height>708</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Промышленная установка для сверхкритической сушки</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>611</width>
+      <height>651</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Параметры</string>
+    </property>
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>591</width>
+       <height>321</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Температура в основном аппарате, С</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="2">
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="text">
+         <string>120</string>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="0" colspan="3">
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>Запустить расчет</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="2">
+       <widget class="QLineEdit" name="lineEdit_3">
+        <property name="text">
+         <string>6</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QLineEdit" name="lineEdit_6">
+        <property name="text">
+         <string>1000</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Давление в основном аппарате, бар</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Давление после дросселирования, бар</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Среднeе содержание спирта на выходе из основного аппарата</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Давление после компрессора, бар</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="2">
+       <widget class="QLineEdit" name="lineEdit_2">
+        <property name="text">
+         <string>40</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="2">
+       <widget class="QLineEdit" name="lineEdit_4">
+        <property name="text">
+         <string>0.3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="15" column="0" colspan="3">
+       <widget class="QLabel" name="label_28">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="text">
+         <string>Принципиальная схема установки:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_8">
+        <property name="text">
+         <string>Производительность установки по аэрогелю, куб.м/год</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="3">
+       <widget class="QLabel" name="label_7">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="text">
+         <string>Исходные параметры</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="2">
+       <widget class="QLineEdit" name="lineEdit_5">
+        <property name="text">
+         <string>50</string>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="0" colspan="3">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="11" column="0">
+       <widget class="QLabel" name="label_31">
+        <property name="text">
+         <string>Объем аппарата, м.куб.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="2">
+       <widget class="QComboBox" name="comboBox">
+        <item>
+         <property name="text">
+          <string>V = 0.1</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>V = 0.15</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>V = 0.2</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>V = 0.3</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>V = 0.4</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>V = 0.5</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>340</y>
+       <width>591</width>
+       <height>301</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../научная работа/проекты/РНФ/цифровой двойник/отчет 2 этап/WhatsApp Image 2024-05-07 at 14.51.39.jpeg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="wordWrap">
+      <bool>false</bool>
+     </property>
+     <property name="openExternalLinks">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>10</y>
+      <width>641</width>
+      <height>651</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Расчетные значения</string>
+    </property>
+    <widget class="QWidget" name="gridLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>621</width>
+       <height>630</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="13" column="1">
+       <widget class="QLineEdit" name="lineEdit_12">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="0" colspan="2">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="27" column="1">
+       <widget class="QLineEdit" name="lineEdit_23">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="26" column="0">
+       <widget class="QLabel" name="label_26">
+        <property name="text">
+         <string>Полезная мощность насоса, кВт</string>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="1">
+       <widget class="QLineEdit" name="lineEdit_11">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_14">
+        <property name="text">
+         <string>Общие энергозатраты на теплообмен, кВт*ч/цикл</string>
+        </property>
+       </widget>
+      </item>
+      <item row="17" column="1">
+       <widget class="QLineEdit" name="lineEdit_14">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="22" column="1">
+       <widget class="QLineEdit" name="lineEdit_13">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_29">
+        <property name="text">
+         <string>Необходимое количество аппаратов заданного объема</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="1">
+       <widget class="QLineEdit" name="lineEdit_8">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="26" column="1">
+       <widget class="QLineEdit" name="lineEdit_22">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="22" column="0">
+       <widget class="QLabel" name="label_22">
+        <property name="text">
+         <string>Потери диоксида углерода в сепараторе, масс.%</string>
+        </property>
+       </widget>
+      </item>
+      <item row="17" column="0">
+       <widget class="QLabel" name="label_19">
+        <property name="text">
+         <string>Температура после дросселирования, С</string>
+        </property>
+       </widget>
+      </item>
+      <item row="16" column="0">
+       <widget class="QLabel" name="label_21">
+        <property name="text">
+         <string>Необходимая мощность нагрева теплообменника до дросселя, кВт</string>
+        </property>
+       </widget>
+      </item>
+      <item row="21" column="0">
+       <widget class="QLabel" name="label_20">
+        <property name="text">
+         <string>Доля газовой фазы ко всей смеси в сепараторе, моль/моль</string>
+        </property>
+       </widget>
+      </item>
+      <item row="24" column="1">
+       <widget class="QLineEdit" name="lineEdit_20">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="0">
+       <widget class="QLabel" name="label_12">
+        <property name="text">
+         <string>Чистое время сушки, ч</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="lineEdit_24">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="16" column="1">
+       <widget class="QLineEdit" name="lineEdit_16">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="0">
+       <widget class="QLabel" name="label_13">
+        <property name="text">
+         <string>Время сушки с учетом загрузки/разгрузки, ч</string>
+        </property>
+       </widget>
+      </item>
+      <item row="23" column="0">
+       <widget class="QLabel" name="label_23">
+        <property name="text">
+         <string>Полезная мощность компрессора, кВт</string>
+        </property>
+       </widget>
+      </item>
+      <item row="19" column="0">
+       <widget class="QLabel" name="label_17">
+        <property name="text">
+         <string>Содержание спирта в газовой фазе в сепараторе, моль/моль</string>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="1">
+       <widget class="QLineEdit" name="lineEdit_15">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="25" column="0">
+       <widget class="QLabel" name="label_25">
+        <property name="text">
+         <string>Необходимая мощность отвода тепла в конденсаторе, кВт </string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="2">
+       <widget class="QLabel" name="label_15">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="text">
+         <string>Основные расчетные характеристики установки</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLineEdit" name="lineEdit_9">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="19" column="1">
+       <widget class="QLineEdit" name="lineEdit_17">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="label_10">
+        <property name="text">
+         <string>Общие энергозатраты на насосное оборудование, кВт*ч/цикл</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QLabel" name="label_9">
+        <property name="text">
+         <string>Потери диоксида углерода, кг/цикл</string>
+        </property>
+       </widget>
+      </item>
+      <item row="21" column="1">
+       <widget class="QLineEdit" name="lineEdit_18">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="25" column="1">
+       <widget class="QLineEdit" name="lineEdit_21">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="15" column="0" colspan="2">
+       <widget class="QLabel" name="label_16">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="text">
+         <string>Расчетные значения для каждого узла установки</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="27" column="0">
+       <widget class="QLabel" name="label_27">
+        <property name="text">
+         <string>Необходимая мощность нагрева теплообменника после насоса, кВт</string>
+        </property>
+       </widget>
+      </item>
+      <item row="24" column="0">
+       <widget class="QLabel" name="label_24">
+        <property name="text">
+         <string>Температура потока после компрессора, С</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="0">
+       <widget class="QLabel" name="label_11">
+        <property name="text">
+         <string>Общее энергопотребление, кВт</string>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="0">
+       <widget class="QLabel" name="label_18">
+        <property name="text">
+         <string>Содержание спирта в жидкой фазе в сепараторе, моль/моль</string>
+        </property>
+       </widget>
+      </item>
+      <item row="23" column="1">
+       <widget class="QLineEdit" name="lineEdit_19">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QLineEdit" name="lineEdit_10">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QLineEdit" name="lineEdit_7">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="lineEdit_25">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_30">
+        <property name="text">
+         <string>Рекомендованный расход диоксида углерода, кг/ч</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1283</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Файл</string>
+    </property>
+    <addaction name="action"/>
+    <addaction name="separator"/>
+    <addaction name="action_3"/>
+   </widget>
+   <addaction name="menu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action">
+   <property name="text">
+    <string>Экспорт результатов</string>
+   </property>
+  </action>
+  <action name="action_3">
+   <property name="text">
+    <string>Выход</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
