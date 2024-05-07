@@ -11,6 +11,7 @@ THROTTLE_PRESSURE = 6  # bar
 MEAN_ALCOHOL_COMPOSITION_ON_OUTLET = 0.3
 INIT_COMPOSITION = [MEAN_ALCOHOL_COMPOSITION_ON_OUTLET, 1 - MEAN_ALCOHOL_COMPOSITION_ON_OUTLET]
 PRESSURE_COMPRESSOR = 50
+CONDENSATION_TEMPERATURE = 0
 
 R = 8.314  # J / (mol * K)
 
@@ -23,7 +24,6 @@ flow_list = app_massflow_rate(app_volume_cur, residence_time)
 
 gas1 = ct.CarbonDioxide()
 gas1.TP = 273.15 + 40, 101325 * 120
-
 
 
 def heat_exchanger_press_drop(flowrate, pressure=PROCESS_PRESSURE, temperature_inlet=PROCESS_TEMPERATURE, temperature_outlet=80):
@@ -87,7 +87,7 @@ def separator(flow_rate, initial_composition, temperature, pressure):
 def compressor():
     return
 
-def condencor(flowrate, pressure, inlet_temperature, outlet_temperature):
+def condenser(flowrate, pressure, inlet_temperature, outlet_temperature):
     t_1 = 273.15 + inlet_temperature
     gas1.TP = t_1, 101325 * pressure
     entalphy_1 = gas1.enthalpy_mass
@@ -97,24 +97,56 @@ def condencor(flowrate, pressure, inlet_temperature, outlet_temperature):
     entalphy_2 = gas1.enthalpy_mass
 
     delta_h = abs(entalphy_1 - entalphy_2)
-    delta_heat = entalphy_2 * flowrate
+    delta_heat = delta_h * flowrate
 
     return delta_heat
 
-print('app_volumes', app_volume)
+print('\n')
+print('-----Initial Data-----')
+print('Possible volumes of apparatuses, cub.m:', app_volume)
+print('Chosen volume of apparatus, cub.m:', app_volume_cur)
+print('List of flow rates for current volume of apparatus, kg/h:', np.round(flow_list * 3600, 2))
+print('\n')
 
-print(heat_exchanger_press_drop(flow_list))
-
+print('-----Drying Apparatus-----')
 t = app_drying_time(flow_list, app_volume_cur)
-print('drying_times', t)
+print('Drying time for different flow rates, h:', np.round(t, 1))
+print('\n')
 
+print('-----Heat Exchanger-----')
+heat_of_first_exchanger = heat_exchanger_press_drop(flow_list)
+print('Heat exchanger power, W:', np.round(heat_of_first_exchanger, 1))
+print('\n')
+
+print('-----Throttle-----')
 temperature_after_throttle = throttle(flow_list, 80)
-print(temperature_after_throttle)
+print('Temperature of flow after throttle, deg C:', np.round(temperature_after_throttle, 2))
+print('\n')
 
+print('-----Separator-----')
 liquid_phase_composition, vapor_phase_composition, vapor_phase_fraction, co2_mass_rate = separator(flow_list, INIT_COMPOSITION, temperature_after_throttle, THROTTLE_PRESSURE)
-print('flow rate', flow_list)
-print(liquid_phase_composition, vapor_phase_composition, vapor_phase_fraction, co2_mass_rate)
-print('losses of CO2', (co2_mass_rate / flow_list)*100)
+print('flow rate, kg/h:', np.round(flow_list * 3600, 2))
+print('Liquid phase composition, mol/mol:', liquid_phase_composition)
+print('Gas phase composition, mol/mol:', vapor_phase_composition)
+print('Vapor phase fraction, mol/mol:', np.round(vapor_phase_fraction, 3))
+print('Mass flow rate of CO2 in liquid phase, kg/h:', np.round(co2_mass_rate* 3600, 2))
+print('Losses of CO2, %:', np.round((co2_mass_rate / flow_list)*100, 2))
+print('\n')
 
-condencor(flow_list, PRESSURE_COMPRESSOR)
+print('-----Compressor-----')
+
+print('\n')
+
+print('-----Condenser-----')
+power_heat_condenser = condenser(flow_list, PRESSURE_COMPRESSOR, 110, CONDENSATION_TEMPERATURE)
+print('Condenser cooling power, W:', np.round(power_heat_condenser, 2))
+print('\n')
+
+print('-----Pump-----')
+
+print('\n')
+
+print('-----Heat Exchanger-----')
+
+print('\n')
 

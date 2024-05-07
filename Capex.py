@@ -59,27 +59,27 @@ def app_massflow_rate(volume, res_time):
 
 def app_drying_time(mass_flow_rate, volume):
     if volume == 0.1:
-        print('check 1')
+        print('check: apparatus volume =', volume)
         drying_time = -19340 * mass_flow_rate ** 3 + 4501.2 * mass_flow_rate ** 2 - 359.66 * mass_flow_rate + 19.348
 
     elif (volume == 0.15).all():
-        print('check 2')
+        print('check: apparatus volume =', volume)
         drying_time = -4730.4 * mass_flow_rate ** 3 + 1715.3 * mass_flow_rate ** 2 - 221.19 * mass_flow_rate + 20.059
 
     elif (volume == 0.2).all():
-        print('check 3')
+        print('check: apparatus volume =', volume)
         drying_time = 907.53 * mass_flow_rate ** 3 - 58.158 * mass_flow_rate ** 2 - 61.034 * mass_flow_rate + 17.571
 
     elif (volume == 0.3).all():
-        print('check 4')
+        print('check: apparatus volume =', volume)
         drying_time = -433.8 * mass_flow_rate ** 3 + 365.55 * mass_flow_rate ** 2 - 106.85 * mass_flow_rate + 21.456
 
     elif (volume == 0.4).all():
-        print('check 5')
+        print('check: apparatus volume =', volume)
         drying_time = -132.93 * mass_flow_rate ** 3 + 167.96 * mass_flow_rate ** 2 - 73.345 * mass_flow_rate + 22.549
 
     else:
-        print('check 6')
+        print('check: apparatus volume =', volume)
         drying_time = -163.18 * mass_flow_rate ** 3 + 205.66 * mass_flow_rate ** 2 - 94.674 * mass_flow_rate + 28.299
 
     return drying_time
