@@ -24,8 +24,11 @@ def main_click():
     print(number_of_poss_cycles)
 
     number_of_apparatuses = np.ceil(number_of_ness_cycles / number_of_poss_cycles)
+
     print(number_of_apparatuses)
-    window.line_app_number.setText(str(min(number_of_apparatuses)))
+    # window.line_app_number.setText(str(min(number_of_apparatuses)))
+
+    return
 
 
 app = QtWidgets.QApplication(sys.argv)

@@ -213,12 +213,13 @@ def main():
     fig = plt.figure()
     ax = fig.add_subplot(projection='3d')
     ax.plot_surface(x, y, total_capex_cost)
-    ax.set_xlabel('App_volume, m3')
-    ax.set_ylabel('Residence time, s')
-    ax.set_zlabel('Capex, rub')
+    ax.set_xlabel('Объем аппарата, куб.м')
+    ax.set_ylabel('Время пребывания, с')
+    ax.set_zlabel('Себестоимость, руб.')
 
     plt.show()
 
+main()
 # x, y = np.meshgrid(app_volume, residence_time)
 # #print('1', x, y)
 # diameter_list = app_diameter_ness(x)
